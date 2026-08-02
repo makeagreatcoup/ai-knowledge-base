@@ -1,0 +1,65 @@
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "Bash",
+      "WebSearch",
+      "WebFetch",
+      "Skill"
+    ],
+    "deny": [],
+    "ask": []
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node --disable-warning=ExperimentalWarning --experimental-strip-types \"${CLAUDE_PROJECT_DIR:-.}/.claude/scripts/session-start.ts\"",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node --disable-warning=ExperimentalWarning --experimental-strip-types \"${CLAUDE_PROJECT_DIR:-.}/.claude/scripts/validate-write.ts\"",
+            "timeout": 15
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node --disable-warning=ExperimentalWarning --experimental-strip-types \"${CLAUDE_PROJECT_DIR:-.}/.claude/scripts/pre-compact.ts\"",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node --disable-warning=ExperimentalWarning --experimental-strip-types \"${CLAUDE_PROJECT_DIR:-.}/.claude/scripts/stop-checklist.ts\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}

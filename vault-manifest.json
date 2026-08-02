@@ -1,0 +1,83 @@
+{
+  "name": "ai-knowledge-base",
+  "version": "1.1.0",
+  "description": "Universal personal AI knowledge base — brain + 5 generic directories with subdirectories + scenario extensions.",
+  "qmd_index": "ai-kb",
+  "structure": {
+    "brain": {
+      "path": "brain/",
+      "description": "AI memory core: North Star (goals), Memories, Key Decisions, Patterns, Gotchas",
+      "files": [
+        "North Star.md",
+        "Memories.md",
+        "Key Decisions.md",
+        "Patterns.md",
+        "Gotchas.md"
+      ]
+    },
+    "directories": {
+      "01.每日工作台": {
+        "description": "Daily workspace: today's tasks, weekly plans",
+        "subdirectories": {
+          "今日任务": "Today's to-do items, one file per day",
+          "本周计划": "Weekly plans and reviews"
+        }
+      },
+      "02.笔记": {
+        "description": "Notes: ideas, learning, meetings",
+        "subdirectories": {
+          "灵感想法": "Ideas, opinions, sudden inspirations",
+          "学习笔记": "Book notes, course notes, skill learning",
+          "会议记录": "Meeting minutes, communication records"
+        }
+      },
+      "03.素材库": {
+        "description": "Material library: collected external content",
+        "subdirectories": {
+          "文章收藏": "Good articles worth re-reading",
+          "金句语录": "Striking quotes and aphorisms",
+          "案例参考": "Cases worth studying and deconstructing"
+        }
+      },
+      "04.业务": {
+        "description": "Business: projects, clients, finances",
+        "subdirectories": {
+          "项目管理": "Project docs, progress, reviews",
+          "客户档案": "Client info, communication history",
+          "财务记录": "Income, expenses, budget"
+        }
+      },
+      "05.个人": {
+        "description": "Personal: journal, goals, health",
+        "subdirectories": {
+          "日记感悟": "Daily journal, mood, reflections",
+          "目标计划": "Annual goals, monthly reviews, habit tracking",
+          "健康记录": "Exercise, diet, sleep, checkups"
+        }
+      }
+    }
+  },
+  "infrastructure": [
+    "CLAUDE.md",
+    "README.md",
+    "README.*.md",
+    "使用手册.md",
+    "vault-manifest.json",
+    ".gitignore",
+    "package.json",
+    "package-lock.json",
+    "tsconfig.json",
+    "qmd-mcp.mjs"
+  ],
+  "frontmatter_schema": {
+    "description": "Optional one-line summary shown in brain index and search results",
+    "field": "description",
+    "type": "string"
+  },
+  "scenario_extensions": {
+    "内容创作": ["06.选题/", "07.文案/", "08.发布存档/", "09.数据反馈/"],
+    "学习提升": ["06.课程/", "07.复习/"],
+    "业务管理": ["06.项目/", "07.客户/"],
+    "生活记录": ["06.日记/", "07.目标/"]
+  }
+}

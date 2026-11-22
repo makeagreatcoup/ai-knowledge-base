@@ -1,24 +1,5 @@
-# Obsidian
+.DS_Store
+.trash/
 .obsidian/workspace.json
 .obsidian/workspace-mobile.json
-
-# Smart Connections
-.smart-env/
-
-# Node
-node_modules/
-package-lock.json
-
-# Claude Code local
-.claude/settings.local.json
-
-# OS
-.DS_Store
-Thumbs.db
-desktop.ini
-
-# Session logs
-thinking/session-logs/*.jsonl
-
-# QMD index
-.qmd/
+*.tmp
